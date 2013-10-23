@@ -1,10 +1,12 @@
 ChaguoLako::Application.routes.draw do
+  #get "sessions/new"
   get "welcome/index"
 
   get "welcome/about"
 
-  resources :voters
+  resources :voters, :sessions
   root :to => "welcome#index"
+  get "log-out" => "sessions#destroy", as: "log_out"
 
 
   # The priority is based upon order of creation:
