@@ -15,6 +15,7 @@
     <% if admin_is_logged_in? %>
     	<% session[:user].username%>
     	<%= link_to "Log Out", log_out_path  %>
+      <%= link_to "Voters", voters_path %>
    	<% end %>
    	
 </body>

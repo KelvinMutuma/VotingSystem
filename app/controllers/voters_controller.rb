@@ -1,13 +1,17 @@
 class VotersController < ApplicationController
   # GET /voters
   # GET /voters.json
-  def index
-    @voters = Voter.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @voters }
-    end
+  before_action :authorise_admin, only:[:index,:show]
+
+  def index
+
+      @voters = Voter.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @voters }
+      end
   end
 
   # GET /voters/1
